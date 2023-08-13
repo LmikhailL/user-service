@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE}
+    include:
+      - kafka
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:10900/users
+  liquibase:
+    change-log: db/changelog/changelog-master.yml

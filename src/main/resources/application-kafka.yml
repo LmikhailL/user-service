@@ -1,0 +1,15 @@
+spring:
+  #Kafka config
+  kafka:
+    consumer:
+      group-id: user-service
+      bootstrap-servers: http://localhost:9092
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    security:
+      protocol: PLAINTEXT
+    topics:
+      user-registered-topic: user-registered
+      user-saved-topic: user-saved
+    bootstrap-servers: http://localhost:9092

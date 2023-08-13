@@ -1,8 +1,6 @@
 package com.ates.userservice.model;
 
-
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
