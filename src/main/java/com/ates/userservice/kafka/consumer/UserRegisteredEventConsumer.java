@@ -1,11 +1,11 @@
 package com.ates.userservice.kafka.consumer;
 
+import static com.ates.userservice.utils.JsonMappingUtils.mapTo;
 import static com.ates.userservice.utils.MdcUtils.CORRELATION_ID;
 import static com.ates.userservice.utils.MdcUtils.setCorrelationId;
 
 import com.ates.userservice.facade.UserFacade;
 import com.ates.userservice.model.UserRegisteredEvent;
-import com.ates.userservice.utils.JsonMappingUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -31,7 +31,7 @@ public class UserRegisteredEventConsumer {
     setCorrelationId(customHeader);
     log.info("Received UserRegisteredEvent: {}", message);
 
-    UserRegisteredEvent event = JsonMappingUtils.mapTo(message, UserRegisteredEvent.class);
+    UserRegisteredEvent event = mapTo(message, UserRegisteredEvent.class);
     userFacade.on(event);
   }
 }
