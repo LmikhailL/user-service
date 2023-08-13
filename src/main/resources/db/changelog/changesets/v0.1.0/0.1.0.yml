@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.1.0-1
+      author: m.lipilov
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: keycloak_id
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar
+              - column:
+                  name: last_name
+                  type: varchar
+              - column:
+                  name: email
+                  type: varchar
