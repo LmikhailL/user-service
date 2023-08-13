@@ -25,3 +25,6 @@ databaseChangeLog:
               - column:
                   name: email
                   type: varchar
+              - column:
+                  name: role
+                  type: varchar

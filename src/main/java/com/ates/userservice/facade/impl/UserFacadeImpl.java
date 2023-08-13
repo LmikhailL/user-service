@@ -3,10 +3,13 @@ package com.ates.userservice.facade.impl;
 import com.ates.userservice.entity.UserEntity;
 import com.ates.userservice.facade.UserFacade;
 import com.ates.userservice.mapper.UserRegisteredEventMapper;
+import com.ates.userservice.mapper.UserSavedEventMapper;
 import com.ates.userservice.model.UserRegisteredEvent;
+import com.ates.userservice.model.UserSavedEvent;
 import com.ates.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +20,8 @@ public class UserFacadeImpl implements UserFacade {
 
   private final UserService userService;
   private final UserRegisteredEventMapper userRegisteredEventMapper;
+  private final UserSavedEventMapper userSavedEventMapper;
+  private final ApplicationEventPublisher eventPublisher;
 
   @Override
   @Transactional
@@ -24,7 +29,9 @@ public class UserFacadeImpl implements UserFacade {
     log.info("Started user data replication, event: {}", event);
 
     UserEntity user = userRegisteredEventMapper.toUser(event);
-    userService.save(user);
-    //TODO UserSavedEvent
+    UserEntity savedUser = userService.save(user);
+    UserSavedEvent savedEvent = userSavedEventMapper.toEvent(savedUser);
+
+    eventPublisher.publishEvent(savedEvent);
   }
 }

@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService {
 
   @Override
   @Transactional
-  public void save(UserEntity user) {
+  public UserEntity save(UserEntity user) {
     log.info("Started saving or updating user: {}", user);
-    userRepository.save(user);
+    return userRepository.save(user);
   }
 }

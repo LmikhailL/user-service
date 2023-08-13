@@ -11,4 +11,5 @@ spring:
       protocol: PLAINTEXT
     topics:
       user-registered-topic: user-registered
+      user-saved-topic: user-saved
     bootstrap-servers: http://localhost:9092
