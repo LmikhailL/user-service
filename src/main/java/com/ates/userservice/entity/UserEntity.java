@@ -1,9 +1,13 @@
 package com.ates.userservice.entity;
 
+import static com.ates.userservice.model.Role.DEFAULT_POPUG;
+import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+import com.ates.userservice.model.Role;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -34,4 +38,8 @@ public class UserEntity {
 
   @Column(name = "email")
   private String email;
+
+  @Column(name = "role")
+  @Enumerated(STRING)
+  private Role role = DEFAULT_POPUG;
 }
