@@ -1,4 +1,4 @@
-package com.ates.userservice.filter;
+package com.ates.userservice.interceptor;
 
 import static com.ates.userservice.utils.ContextRoleHolder.remove;
 import static com.ates.userservice.utils.ContextRoleHolder.setUserRoles;
