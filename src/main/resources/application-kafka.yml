@@ -17,3 +17,7 @@ spring:
       user-registered-topic: user-registered
       user-saved-topic: user-saved
     bootstrap-servers: http://localhost:9092
+    properties:
+      schema:
+        registry:
+          url: http://localhost:9898
