@@ -73,6 +73,23 @@ services:
     environment:
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: "zookeeper_common:2181"
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: "PLAINTEXT://kafka_common:29094"
+      SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_ORIGIN: '*'
+      SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_METHODS: GET,POST,PUT,OPTIONS
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: "PLAINTEXT://kafka_common:29094" # Add this line
-      SCHEMA_REGISTRY_DEBUG: "true"
+
+  schema-registry-ui:
+    image: landoop/schema-registry-ui
+    hostname: schema-registry-ui
+    depends_on:
+      - kafka_common
+      - schema-registry
+    ports:
+      - "8002:8000"
+    environment:
+      SCHEMAREGISTRY_URL: http://localhost:9898
+      PROXY: "false"
+
+networks:
+  default:
+    name: kafka-network
