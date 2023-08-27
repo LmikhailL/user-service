@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "UserSavedEvent",
+  "namespace": "com.avro.events.streaming",
+  "fields": [
+    {
+      "name": "userKeycloakId",
+      "type": "string"
+    },
+    {
+      "name": "firstName",
+      "type": "string"
+    },
+    {
+      "name": "lastName",
+      "type": "string"
+    },
+    {
+      "name": "role",
+      "type": "string"
+    }
+  ]
+}

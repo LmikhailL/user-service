@@ -1,7 +1,7 @@
 package com.ates.userservice.mapper;
 
 import com.ates.userservice.entity.UserEntity;
-import com.ates.userservice.model.UserRegisteredEvent;
+import com.avro.events.streaming.UserRegisteredEvent;
 
 public interface UserRegisteredEventMapper {
 

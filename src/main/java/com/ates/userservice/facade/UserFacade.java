@@ -1,6 +1,6 @@
 package com.ates.userservice.facade;
 
-import com.ates.userservice.model.UserRegisteredEvent;
+import com.avro.events.streaming.UserRegisteredEvent;
 
 public interface UserFacade {
 

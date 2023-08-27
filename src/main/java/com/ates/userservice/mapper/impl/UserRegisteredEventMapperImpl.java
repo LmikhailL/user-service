@@ -2,7 +2,7 @@ package com.ates.userservice.mapper.impl;
 
 import com.ates.userservice.entity.UserEntity;
 import com.ates.userservice.mapper.UserRegisteredEventMapper;
-import com.ates.userservice.model.UserRegisteredEvent;
+import com.avro.events.streaming.UserRegisteredEvent;
 import org.springframework.stereotype.Component;
 
 @Component
