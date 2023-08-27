@@ -4,7 +4,7 @@ import static com.ates.userservice.utils.MdcUtils.getCorrelationId;
 
 import com.ates.userservice.kafka.producer.ProducerTemplate;
 import com.ates.userservice.kafka.producer.UserSavedEventProducer;
-import com.ates.userservice.model.UserSavedEvent;
+import com.avro.events.streaming.UserSavedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

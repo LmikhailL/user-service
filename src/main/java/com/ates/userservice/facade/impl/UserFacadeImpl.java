@@ -4,14 +4,14 @@ import com.ates.userservice.entity.UserEntity;
 import com.ates.userservice.facade.UserFacade;
 import com.ates.userservice.mapper.UserRegisteredEventMapper;
 import com.ates.userservice.mapper.UserSavedEventMapper;
-import com.ates.userservice.model.UserRegisteredEvent;
-import com.ates.userservice.model.UserSavedEvent;
 import com.ates.userservice.service.UserService;
+import com.avro.events.streaming.UserRegisteredEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import com.avro.events.streaming.UserSavedEvent;
 
 @Slf4j
 @Component

@@ -4,13 +4,13 @@ spring:
     producer:
       bootstrap-servers: http://localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
     consumer:
       group-id: user-service
       bootstrap-servers: http://localhost:9092
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
     security:
       protocol: PLAINTEXT
     topics:
@@ -21,3 +21,6 @@ spring:
       schema:
         registry:
           url: http://localhost:9898
+      specific:
+        avro:
+          reader: true

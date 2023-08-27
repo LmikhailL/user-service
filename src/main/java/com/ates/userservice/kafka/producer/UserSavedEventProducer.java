@@ -1,6 +1,6 @@
 package com.ates.userservice.kafka.producer;
 
-import com.ates.userservice.model.UserSavedEvent;
+import com.avro.events.streaming.UserSavedEvent;
 
 public interface UserSavedEventProducer {
 
